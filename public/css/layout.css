@@ -866,7 +866,7 @@ call-to-action .button {
 #contact select {
    padding: 18px 20px;
 	color: #eee;
-	background: #373233;
+	/* background: #373233; */
 	/* margin-bottom: 42px; */
 	border: 0;
 	outline: none;
@@ -878,14 +878,14 @@ call-to-action .button {
 #contact input:focus,
 #contact textarea:focus,
 #contact select:focus {
-	color: #fff;
+	color:black;
 	background-color: #8eb3e3;
 }
 #contact button.submit {
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	color:#fff;
-   background: #0D0D0D;
+   background: #04724e;
 	border: none;
    cursor: pointer;
    height: auto;
@@ -894,7 +894,7 @@ call-to-action .button {
    margin-left: 26%;
 }
 #contact button.submit:hover {
-	color: #0D0D0D;
+	color: #0d0d0d;
 	background: #fff;
 }
 #contact span.required {
@@ -929,8 +929,10 @@ call-to-action .button {
 /* ------------------------------------------------------------------ */
 
 footer {
-   padding-top: 48px;
-   margin-bottom: 48px;
+   position:fixed;
+   bottom:0;
+   padding-top: 30px;
+   margin-bottom: 30px;
    color: #303030;
    font-size: 14px;
    text-align: center;
@@ -982,18 +984,23 @@ footer .social-links li:first-child { margin-left: 0; }
 
 /* Go To Top Button */
 #go-top {
-	position: absolute;
-	top: -24px;
-   left: 50%;
+	position: fixed;
+	/* top: -24px; */
+   left: 95%;
    margin-left: -30px;
+   bottom: 30px;
 }
 #go-top a {
 	text-decoration: none;
 	border: 0 none;
 	display: block;
-	width: 60px;
-	height: 60px;
-	background-color: #525252;
+   /* left: 50%; */
+	/* width: 60px;
+	height: 60px; */
+   height: 42px;
+   width: 42px;
+	/* background-color: #525252; */
+   background-color: white;
 
 	-webkit-transition: all 0.2s ease-in-out;
    -moz-transition: all 0.2s ease-in-out;
@@ -1001,9 +1008,16 @@ footer .social-links li:first-child { margin-left: 0; }
    -ms-transition: all 0.2s ease-in-out;
    transition: all 0.2s ease-in-out;
 
-   color: #fff;
+   color: black;
    font-size: 21px;
    line-height: 60px;
  	border-radius: 100%;
 }
 #go-top a:hover { background-color: #0F9095; }
+
+@media only screen and (max-width: 767px){
+
+   #go-top {
+      content-visibility: hidden;
+   }
+}

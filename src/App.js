@@ -1,27 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Route, Routes } from 'react-router-dom';
-import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import About from "./Components/About";
-import Resume from "./Components/Resume";
-import Contact from "./Components/Contact";
-import Testimonials from "./Components/Testimonials";
-import Portfolio from "./Components/Portfolio";
-import ContactForm from "./Components/ContactForm";
 import "./App.css";
-import Home from "./Home";
+import Home from "./Components/Home";
+import UploadImage from "./Components/UploadImage";
+// import VideoInput from "./Components/VideoInput";
+import VideoDetect from "./Components/VideoDetect";
 
 const App = () => {
 
-  const [resumeData, setResumeData] = useState({});
 
-  useEffect(() => {
-    fetch("/resumeData.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setResumeData(data);
-      });
-  }, []);
 
   return (
     // <div className="App">
@@ -38,9 +26,10 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/" element={<About />} />
-        <Route path="/" element={<Testimonials />} />
-        <Route path="/" element={<Footer />} /> */}
+          <Route exact path="/capture" element={<UploadImage />} />
+          {/* <Route exact path="/video" element={<VideoInput />} /> */}
+          <Route exact path='/video' element={<VideoDetect />} />
+
         </Routes>
       </main>
       <Footer />

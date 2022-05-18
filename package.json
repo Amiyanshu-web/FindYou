@@ -1,17 +1,20 @@
 {
-  "name": "resume_starter_pack",
+  "name": "findyou",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "face-api.js": "^0.22.2",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^17.0.2",
     "react-hook-form": "^7.31.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.1",
     "react-typewriter": "^0.4.1",
+    "react-webcam": "^7.0.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
