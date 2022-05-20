@@ -139,119 +139,93 @@ class VideoDetect extends Component {
                 );
             });
         }
-
+        // console.log(this.state.match);
+        console.log(this.state.detections);
         return (
-            <div
-                className="Camera"
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center'
-                }}
-            >
-                <p>Camera: {camera}</p>
-                <div
-                    style={{
-                        width: WIDTH,
-                        height: HEIGHT
-                    }}
-                >
-                    <div style={{ position: 'relative', width: WIDTH }}>
-                        {!!videoConstraints ? (
-                            <div style={{ position: 'absolute' }}>
-                                <Webcam
-                                    audio={false}
-                                    width={WIDTH}
-                                    height={HEIGHT}
-                                    ref={this.webcam}
-                                    screenshotFormat="image/jpeg"
-                                    videoConstraints={videoConstraints}
-                                />
+            <>
+                <Navigation />
+                <div className='maiiin'>
+                    <div className="content">
+                        <div className='container'>
+                            <div
+                                className="left"
+                                style={{
+                                    // display: 'flex',
+                                    // flexDirection: 'column',
+                                    // alignItems: 'center',
+                                    HEIGHT, WIDTH
+                                }}
+                            >
+                                {/* <p>Camera: {camera}</p> */}
+                                <div
+                                    style={{
+                                        width: WIDTH,
+                                        height: HEIGHT
+                                    }}
+                                >
+                                    <div style={{ position: 'relative', width: WIDTH }}>
+                                        {!!videoConstraints ? (
+                                            <div style={{ position: 'absolute' }}>
+                                                <Webcam
+                                                    audio={false}
+                                                    width={WIDTH}
+                                                    height={HEIGHT}
+                                                    ref={this.webcam}
+                                                    screenshotFormat="image/jpeg"
+                                                    videoConstraints={videoConstraints}
+                                                    className="missimg"
+                                                />
+                                            </div>
+                                        ) : null}
+                                        {!!drawBox ? drawBox : null}
+                                    </div>
+                                </div>
                             </div>
-                        ) : null}
-                        {!!drawBox ? drawBox : null}
+                            <div>
+                                <div className="right">
+                                    <h1>MISSING PERSON INFO</h1>
+
+                                    {match ? this.state.match.map((item, i) => {
+                                        return (
+                                            <div key={i}>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th colSpan={2}>Query</th>
+                                                            <th scope="col">Details</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th className='row'>1</th>
+                                                            <td colSpan="2">Name:</td>
+                                                            <td>{item._label}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th className='row'>1</th>
+                                                            <td colSpan="2">Age:</td>
+                                                            <td>{item.distance}</td>
+                                                        </tr>
+                                                    </tbody>
+
+                                                </table>
+                                                <p>{item._label}</p>
+                                            </div>
+                                        )
+                                    }
+                                    ) : null}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            </>
 
 
-            // <>
-            //     <Navigation />
-            //     {/* {
-            //         loading ?  <h1>Loading....</h1> : ( */}
+            //
 
-            //     <div className="detectImage">
-            //         <div className="container">
-            //             <div className="left" style={{ WIDTH, HEIGHT }}>
-            //                 {!!videoConstraints ? (
-            //                     <div style={{ position: 'absolute' }}>
-            //                         <Webcam
-            //                             audio={false}
-            //                             width={WIDTH}
-            //                             height={HEIGHT}
-            //                             ref={this.webcam}
-            //                             screenshotFormat="image/jpeg"
-            //                             videoConstraints={videoConstraints}
-            //                         />
-            //                         {!!drawBox ? drawBox : null}
-            //                     </div>
-            //                 ) : null}
-
-            //             </div>
-
-            //             <div className="right">
-
-            //                 <h1>MISSING PERSON INFO</h1>
-
-            //                 {!!match && !!match[0] ? (
-            //                     <div>
-            //                         <table class="table table-hover">
-            //                             <thead>
-            //                                 <tr>
-            //                                     <th scope="col">#</th>
-            //                                     <th colSpan={2}>Query</th>
-            //                                     <th scope="col">Details</th>
-            //                                 </tr>
-            //                             </thead>
-            //                             <tbody>
-            //                                 <tr>
-            //                                     <th scope="row">1</th>
-            //                                     <td colSpan="2">Name</td>
-            //                                     <td className="name">{match[0]._label}</td>
-            //                                 </tr>
-            //                                 {/* <tr>
-            //                                     <th scope="row">2</th>
-            //                                     <td colSpan="2">Gender</td>
-            //                                     <td className="name">{gender}</td>
-            //                                 </tr>
-            //                                 <tr>
-            //                                     <th scope="row">3</th>
-            //                                     <td colspan="2">Age</td>
-            //                                     <td className="name">{Math.floor(age)}</td>
-            //                                 </tr> */}
-            //                             </tbody>
-            //                         </table>
-            //                     </div>
-            //                 ) : (
-            //                     <div className="not-found">
-            //                         <h3 className="px-2">Sorry!! No Such Missing Person Exist in our database. </h3>
-            //                         <p>If you have any information concerning this case, please contact  at<br /> +(91) 6462879071 or email us at help@findyou.com. You may also contact your local FBI office, the nearest Police Station or Consulate.</p>
-            //                         {/* <p>{copy.map((c, i) => <span key={i}>{c},</span>)}</p> */}
-            //                     </div>
-
-
-            //                 )}
-            //                 {/* )} */}
-
-
-            //             </div>
-
-            //             {/* )} */}
-            //         </div>
-            //     </div>
-            //     {/* ) */}
-            //     {/* } */}
-            // </>
         );
 
     }

@@ -930,9 +930,10 @@ call-to-action .button {
 
 footer {
    position:fixed;
+   height: max-content;
    bottom:0;
    padding-top: 30px;
-   margin-bottom: 30px;
+   /* margin-bottom: 30px; */
    color: #303030;
    font-size: 14px;
    text-align: center;

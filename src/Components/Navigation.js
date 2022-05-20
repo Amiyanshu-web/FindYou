@@ -1,5 +1,8 @@
 import React from 'react'
 
+
+
+const logo = process.env.PUBLIC_URL + '/images/findyou.png'
 const Navigation = () => {
     return (
         <>
@@ -12,13 +15,18 @@ const Navigation = () => {
                 </a>
 
                 <ul id="nav" className="nav">
-                    <div className='banner'><b>FINDYOU</b></div>
+                    <div id="banner"><a href='/'>FINDYOU</a></div>
+                    {/* <li className="current">
+                        <a className="smoothscroll" href="/">
+                            <img className="abcd" src={logo} alt="logo" />
+                        </a>
+                    </li> */}
                     <li className="current">
                         <a className="smoothscroll" href="/capture">
                             Image
                         </a>
                     </li>
-                    <li>
+                    <li className='current'>
                         <a className="smoothscroll" href="/video">
                             Video
                         </a>

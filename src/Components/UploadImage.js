@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Imagedetect from './Imagedetect';
 import video from './bg.mp4';
 import Navigation from './Navigation.js';
+import Demo from './Demo';
 
 // const video = process.env.PUBLIC_URL + '/video/bg.mp4'
 const UploadImage = () => {
@@ -32,7 +33,8 @@ const UploadImage = () => {
                 {/* <h1><strong>Image Upload</strong></h1> */}
                 <div className="content">
                     {image ? (
-                        <Imagedetect image={image} />
+                        // <Imagedetect image={image} />
+                        <Demo image={image} />
                     ) : (
                         <>
                             <div className="newPostCard">
@@ -40,7 +42,7 @@ const UploadImage = () => {
                                     <div className="postForm">
                                         <h4>Drag or Click on this area to uplaod an Image</h4>
                                         <label htmlFor='file'>
-                                            <i className="fa-4x fa-upload addImg" aria-hidden="true"></i>
+                                            <i className="fa-4x fa fa-upload addImg" aria-hidden="true"></i>
                                             {/* <img
 
                                                 className="addImg"

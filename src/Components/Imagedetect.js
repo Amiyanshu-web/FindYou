@@ -51,14 +51,14 @@ const Imagedetect = ({ image }) => {
 
     const handleImage = async () => {
 
-        console.log('Hea');
+        console.log('Running...');
         var detections = await faceapi.detectAllFaces(
             imgRef.current,
             new faceapi.SsdMobilenetv1Options()
         ).withFaceLandmarks().withFaceExpressions().withFaceDescriptors().withAgeAndGender()
         var obj = JSON.parse(JSON.stringify(detections[0].descriptor));
         var values = Object.keys(obj).map(function (key) { return obj[key]; });
-        console.log(JSON.stringify(values));
+        // console.log(JSON.stringify(values));
         setCopy(detections[0].descriptor);
         setAge(detections[0].age);
         setGender(detections[0].gender);
@@ -67,20 +67,18 @@ const Imagedetect = ({ image }) => {
             height: height
 
         });
-        console.log(resizeDetections[0].descriptor);
+        // console.log(resizeDetections[0].descriptor);
 
         faceapi.draw.drawDetections(canvasRef.current, resizeDetections);
         faceapi.draw.drawFaceExpressions(canvasRef.current, resizeDetections);
 
         const faceMatcher = await createMatcher(JSON_PROFILE);
         setFaceInfo({ faceMatcher });
-        console.log(faceMatcher);
+        // console.log(faceMatcher);
         let faceMatches = resizeDetections.map(desc => faceMatcher.findBestMatch(desc.descriptor));
         setFriends(faceMatches[0]._label);
-        console.log(friends);
         setFaces(resizeDetections);
-
-
+        // console.log(JSON_PROFILE.Amiyanshu.date);
     };
 
 
