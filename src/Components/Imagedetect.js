@@ -10,7 +10,7 @@ const JSON_PROFILE = require('../descriptors/bnk48.json');
 
 const Imagedetect = ({ image }) => {
     const { url } = image;
-    const [faces, setFaces] = useState([]);
+    // const [faces, setFaces] = useState([]);
     const [friends, setFriends] = useState(null);
     const [faceInfo, setFaceInfo] = useState(null);
     const imgRef = useRef();
@@ -21,6 +21,7 @@ const Imagedetect = ({ image }) => {
     const [gender, setGender] = useState(null);
     const [copy, setCopy] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [loading2, setLoading2] = useState(true);
     useEffect(() => {
         const MODEL_URI = process.env.PUBLIC_URL + '/models'
         setTimeout(async () => {
@@ -77,8 +78,7 @@ const Imagedetect = ({ image }) => {
         // console.log(faceMatcher);
         let faceMatches = resizeDetections.map(desc => faceMatcher.findBestMatch(desc.descriptor));
         setFriends(faceMatches[0]._label);
-        setFaces(resizeDetections);
-        // console.log(JSON_PROFILE.Amiyanshu.date);
+        setLoading2(false);
     };
 
 
@@ -122,52 +122,55 @@ const Imagedetect = ({ image }) => {
                                 <h1>Loading...</h1>
                             </div>
                             : ( */}
-                        <div className="right">
+                        {!loading &&
+                            <div className="right">
 
-                            <h1>MISSING PERSON INFO</h1>
+                                <h1>MISSING PERSON INFO</h1>
 
-                            {friends != 'unknown' ? (
-                                <div>
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th colSpan={2}>Query</th>
-                                                <th scope="col">Details</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td colSpan="2">Name</td>
-                                                <td className="name">{friends ? friends : 'UNKNOWN'}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td colSpan="2">Gender</td>
-                                                <td className="name">{gender}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td colspan="2">Age</td>
-                                                <td className="name">{Math.floor(age)}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            ) : (
-                                <div className="not-found">
-                                    <h3 className="px-2">Sorry!! No Such Missing Person Exist in our database. </h3>
-                                    <p>If you have any information concerning this case, please contact  at<br /> +(91) 6462879071 or email us at help@findyou.com. You may also contact your local FBI office, the nearest Police Station or Consulate.</p>
-                                    {/* <p>{copy.map((c, i) => <span key={i}>{c},</span>)}</p> */}
-                                </div>
-
-
-                            )}
-                            {/* )} */}
+                                {friends != 'unknown' ? (
+                                    <div>
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th colSpan={2}>Query</th>
+                                                    <th scope="col">Details</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td colSpan="2">Name</td>
+                                                    <td className="name">{friends ? friends : 'UNKNOWN'}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td colSpan="2">Gender</td>
+                                                    <td className="name">{gender}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td colspan="2">Age</td>
+                                                    <td className="name">{Math.floor(age)}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                ) : (
+                                    <div className="not-found">
+                                        <h3 className="px-2">Sorry!! No Such Missing Person Exist in our database. </h3>
+                                        <p>If you have any information concerning this case, please contact  at<br /> +(91) 6462879071 or email us at help@findyou.com. You may also contact your local FBI office, the nearest Police Station or Consulate.</p>
+                                        {/* <p>{copy.map((c, i) => <span key={i}>{c},</span>)}</p> */}
+                                    </div>
 
 
-                        </div>
+                                )}
+                                {/* )} */}
+
+
+                            </div>
+                        }
+
 
                         {/* )} */}
                     </div>

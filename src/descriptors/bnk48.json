@@ -43945,8 +43945,11 @@
       ]
     ]
   },
-  "Cherprang": {
+  "YEN": {
     "name": "YEN",
+    "found": "Tohoku, Japan",
+    "date": "3 January, 2018",
+    "birthmark": "none",
     "descriptors": [
       [
         -0.029239140450954437,
@@ -44598,9 +44601,6 @@
         0.05826863646507263,
         -0.024016112089157104
       ]
-    ],
-    "found": "Tohoku,Japan",
-    "date": "2020-01-01",
-    "birthmark": "none"
+    ]
   }
 }
