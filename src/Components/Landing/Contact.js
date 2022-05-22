@@ -12,13 +12,15 @@ const Contact = () => {
   var contactEmail = "help@findyou.com";
 
   const submitForm = () => {
-    window.open(
-      `mailto:${contactEmail}?subject=${encodeURIComponent(
-        subject
-      )}&body=${encodeURIComponent(name)} (${encodeURIComponent(
-        email
-      )}): ${encodeURIComponent(message)}`
-    );
+    if (email !== '' && message !== '') {
+      window.open(
+        `mailto:${contactEmail}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(name)} (${encodeURIComponent(
+          email
+        )}): ${encodeURIComponent(message)}`
+      );
+    }
   };
 
   return (
@@ -41,7 +43,8 @@ const Contact = () => {
             <fieldset>
               <div>
                 <label htmlFor="contactName">
-                  Name <span className="required">*</span>
+                  Name
+                  {/* <span className="required">*</span> */}
                 </label>
                 <input
                   type="text"
@@ -66,6 +69,8 @@ const Contact = () => {
                   id="contactEmail"
                   name="contactEmail"
                   onChange={(e) => setEmail(e.target.value)}
+                  required
+
                 />
               </div>
 
@@ -93,6 +98,8 @@ const Contact = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   id="contactMessage"
                   name="contactMessage"
+                  required
+
                 ></textarea>
               </div>
 

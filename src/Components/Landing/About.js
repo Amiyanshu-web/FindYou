@@ -14,14 +14,14 @@ const About = () => {
   return (
     <section id="about">
       <div className="row">
-        <div className="three columns">
+        <div className="four columns">
           <img
             className="profile-pic"
             src={profilepic}
             alt="Missing Finder"
           />
         </div>
-        <div className="nine columns main-col">
+        <div className="eight columns main-col">
           <h2 >What is FindYou ?</h2>
 
           <p>FindYou is a people search engine site that helps you to discover people most important and relevant to your life.<br />

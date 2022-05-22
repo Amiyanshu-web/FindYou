@@ -15,7 +15,10 @@ const Header = () => {
         </a>
 
         <ul id="nav" className="nav">
+          <a className="logoname">FINDYOU</a>
+
           <li className="current">
+
             <a className="smoothscroll" href="#home">
               Home
             </a>

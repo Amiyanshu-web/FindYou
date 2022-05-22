@@ -16,12 +16,18 @@ class VideoDetect extends Component {
         super(props);
         this.webcam = React.createRef();
         this.state = {
-            fullDesc: null,
+            fullDescripion: null,
             detections: null,
             descriptors: null,
             faceMatcher: null,
             match: null,
-            facingMode: null
+            facingMode: null,
+            gender: null,
+            age: null,
+            date: null,
+            location: null,
+            birthmark: null
+
         };
     }
 
@@ -67,9 +73,21 @@ class VideoDetect extends Component {
                 inputSize
             ).then(fullDesc => {
                 if (!!fullDesc) {
+                    // console.log(fullDesc);
+                    this.setState({ fullDescripion: fullDesc });
+                    let obj = fullDesc[0];
+                    if (obj) {
+                        // console.log(obj.age);
+                        this.setState({ age: obj.age, gender: obj.gender });
+                    }
+                    console.log(this.state.fullDescripion[0]?.gender);
+
+
                     this.setState({
                         detections: fullDesc.map(fd => fd.detection),
-                        descriptors: fullDesc.map(fd => fd.descriptor)
+                        descriptors: fullDesc.map(fd => fd.descriptor),
+                        // gender: fullDesc[0].gender,
+                        // age: fullDesc[0].age
                     });
                 }
             });
@@ -79,8 +97,27 @@ class VideoDetect extends Component {
                     this.state.faceMatcher.findBestMatch(descriptor)
                 );
                 this.setState({ match });
+                console.log(this.state.match[0]?._label);
+                let obj2 = this.state.match[0];
+                if (obj2) {
+                    this.setState({
+                        date: JSON_PROFILE[obj2._label].date,
+                        location: JSON_PROFILE[obj2._label].found,
+                        birthmark: JSON_PROFILE[obj2._label].birthmark
+
+                    })
+                }
+                // let details = match[0]._label;
+                // this.state({
+                //     date: JSON_PROFILE[details].date,
+                //     location: JSON_PROFILE[details].found,
+                //     birthmark: JSON_PROFILE[details].birthmark
+
+                // })
             }
+
         }
+
     };
 
     render() {
@@ -184,37 +221,62 @@ class VideoDetect extends Component {
                             <div>
                                 <div className="right">
                                     <h1>MISSING PERSON INFO</h1>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th colSpan={2}>Query</th>
+                                                <th scope="col">Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th className='row'>1</th>
+                                                <td colSpan="2">Name:</td>
+                                                <td className='name'>
+                                                    {match ? this.state.match.map((item, i) => {
+                                                        return (
+                                                            <div key={i}>
+                                                                {item._label}
 
-                                    {match ? this.state.match.map((item, i) => {
-                                        return (
-                                            <div key={i}>
-                                                <table>
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th colSpan={2}>Query</th>
-                                                            <th scope="col">Details</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th className='row'>1</th>
-                                                            <td colSpan="2">Name:</td>
-                                                            <td>{item._label}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th className='row'>1</th>
-                                                            <td colSpan="2">Age:</td>
-                                                            <td>{item.distance}</td>
-                                                        </tr>
-                                                    </tbody>
+                                                            </div>
+                                                        )
+                                                    }
+                                                    ) : null}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th className='row'>2</th>
+                                                <td colSpan="2">Age:</td>
+                                                <td className='name'>{Math.floor(this.state.age)}</td>
+                                            </tr>
+                                            <tr>
+                                                <th className='row'>3</th>
+                                                <td colSpan="2">Gender:</td>
+                                                <td className='name'>
+                                                    {/* {this.state.fullDescripion.map(data => data.gender)} */}
+                                                    {/* {this.state.fullDescripion[0]?.gender} */}
+                                                    {this.state.gender}
 
-                                                </table>
-                                                <p>{item._label}</p>
-                                            </div>
-                                        )
-                                    }
-                                    ) : null}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td colspan="2">Found at</td>
+                                                <td className="name">
+                                                    {this.state.location ? <p> {this.state.location} on {this.state.date}</p> : null}
+                                                    {/* //convert string to date */}
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td colspan="2">BirthMark</td>
+                                                <td className="name">{this.state.birthmark} &nbsp;</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
                                 </div>
                             </div>
                         </div>

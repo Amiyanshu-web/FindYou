@@ -191,7 +191,11 @@ ul#nav li.current a { color: #F06000; }
 /* ------------------------------------------------------------------ */
 
 #about {
-   background: #011633;
+   /* background: #011633; */
+   background: rgb(2,0,36);
+   /* background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(1,22,51,1) 24%, rgba(4,47,83,1) 65%, rgba(4,51,88,1) 100%, rgba(15,146,209,1) 100%); */
+   /* background-image: linear-gradient(to  top, #001530, #00173d, #001849, #001854, #0b165f); */
+   background-image: linear-gradient(to bottom, #031b3c, #04224b, #052a5a, #063269, #093a79);
    padding-top: 96px;
    padding-bottom: 66px;
    overflow: hidden;
@@ -204,7 +208,8 @@ ul#nav li.current a { color: #F06000; }
    font: 22px/30px 'opensans-bold', sans-serif;
    color: #fff;
    margin-bottom: 12px;
-   padding-left: 5em;
+   padding-left:30%;
+   text-decoration: underline;
 }
 #about p {
    line-height: 30px;
@@ -865,12 +870,12 @@ call-to-action .button {
 #contact textarea,
 #contact select {
    padding: 18px 20px;
-	color: #eee;
+	/* color: #eee; */
 	/* background: #373233; */
 	/* margin-bottom: 42px; */
 	border: 0;
 	outline: none;
-   font-size: 15px;
+   font-size: 18px;
    line-height: 24px;
    width: 65%;
    height: 45px;
@@ -885,7 +890,7 @@ call-to-action .button {
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	color:#fff;
-   background: #04724e;
+   background: #059862;
 	border: none;
    cursor: pointer;
    height: auto;
@@ -953,6 +958,7 @@ footer .copyright li {
     margin: 0;
     padding: 0;
     line-height: 24px;
+    padding-bottom: 10px;
 }
 .ie footer .copyright li {
    display: inline;
@@ -967,21 +973,6 @@ footer .copyright  li:first-child:before {
     display: none;
 }
 
-/* social links */
-footer .social-links {
-   margin: 18px 0 30px 0;
-   padding: 0;
-   font-size: 30px;
-}
-footer .social-links li {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    margin-left: 42px;
-    color: #F06000;
-}
-
-footer .social-links li:first-child { margin-left: 0; }
 
 /* Go To Top Button */
 #go-top {

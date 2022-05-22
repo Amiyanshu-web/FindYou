@@ -3,7 +3,8 @@ import Footer from './Footer'
 import About from './Landing/About'
 import Contact from './Landing/Contact'
 import Header from './Landing/Header'
-import Testimonials from './Landing/Testimonials'
+import Trivia from './Landing/Trivia'
+// import Testimonials from './Landing/Trivia'
 
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
         <>
             <Header />
             <About />
-            <Testimonials />
+            <Trivia />
             <Contact />
             {/* <Footer /> */}
             <div id="go-top">
