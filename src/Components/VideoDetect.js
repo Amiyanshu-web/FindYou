@@ -6,8 +6,8 @@ import Navigation from './Navigation';
 
 // Import face profile
 const JSON_PROFILE = require('../descriptors/bnk48.json');
-const WIDTH = 420;
-const HEIGHT = 420;
+const WIDTH = 400;
+const HEIGHT = 400;
 const inputSize = 160;
 
 class VideoDetect extends Component {
@@ -218,67 +218,63 @@ class VideoDetect extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <div className="right">
-                                    <h1>MISSING PERSON INFO</h1>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th colSpan={2}>Query</th>
-                                                <th scope="col">Details</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th className='row'>1</th>
-                                                <td colSpan="2">Name:</td>
-                                                <td className='name'>
-                                                    {match ? this.state.match.map((item, i) => {
-                                                        return (
-                                                            <div key={i}>
-                                                                {item._label}
 
-                                                            </div>
-                                                        )
-                                                    }
-                                                    ) : null}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th className='row'>2</th>
-                                                <td colSpan="2">Age:</td>
-                                                <td className='name'>{Math.floor(this.state.age)}</td>
-                                            </tr>
-                                            <tr>
-                                                <th className='row'>3</th>
-                                                <td colSpan="2">Gender:</td>
-                                                <td className='name'>
-                                                    {/* {this.state.fullDescripion.map(data => data.gender)} */}
-                                                    {/* {this.state.fullDescripion[0]?.gender} */}
-                                                    {this.state.gender}
+                            <div className="right">
+                                <h1>MISSING PERSON INFO</h1>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th colSpan={2}>Query</th>
+                                            <th scope="col">Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th >1</th>
+                                            <td colSpan="2">Name:</td>
+                                            <td className="name">
+                                                {match ? this.state.match.map((item, i) => {
+                                                    return (
+                                                        <div key={i}>
+                                                            {item._label}
 
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td colspan="2">Found at</td>
-                                                <td className="name">
-                                                    {this.state.location ? <p> {this.state.location} on {this.state.date}</p> : null}
-                                                    {/* //convert string to date */}
+                                                        </div>
+                                                    )
+                                                }
+                                                ) : null}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th >2</th>
+                                            <td colSpan="2">Age:</td>
+                                            <td className='name'>{Math.floor(this.state.age)}</td>
+                                        </tr>
+                                        <tr>
+                                            <th >3</th>
+                                            <td colSpan="2">Gender:</td>
+                                            <td className='name'>
+                                                {this.state.gender}
 
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td colspan="2">BirthMark</td>
-                                                <td className="name">{this.state.birthmark} &nbsp;</td>
-                                            </tr>
-                                        </tbody>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td colspan="2">Found at</td>
+                                            <td className="name">
+                                                {this.state.location && this.state.date ? <p> {this.state.location} on {this.state.date}</p> : null}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">5</th>
+                                            <td colspan="2">BirthMark</td>
+                                            <td className="name">{this.state.birthmark} &nbsp;</td>
+                                        </tr>
+                                    </tbody>
 
-                                    </table>
-                                </div>
+                                </table>
                             </div>
+
                         </div>
                     </div>
                 </div>
