@@ -3,7 +3,8 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import Navigation from '../Navigation';
 import ReportNav from './ReportNav';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const CLOUDINARY_FOLDER_NAME = 'Missing'
 const CLOUDINARY_CLOUD_NAME = 'dbvg8hyac'
 
@@ -38,8 +39,14 @@ const Report = () => {
             image: selectImage
         }).then(res => {
             console.log(res.data)
-            // navigate to home page
-            navigate('/')
+            // show success message
+            toast.success("Report Done!");
+            // navigate to home page after 2 second
+            setTimeout(() => {
+                navigate('/')
+            }, 2000)
+
+            // navigate('/')
         }).catch(err => {
             console.log(err)
         }
@@ -169,6 +176,17 @@ const Report = () => {
                                     <button type="submit" className="submit" onClick={submitHandler}>
                                         Send
                                     </button>
+                                    <ToastContainer
+                                        position="top-right"
+                                        autoClose={2000}
+                                        hideProgressBar={false}
+                                        newestOnTop={false}
+                                        closeOnClick
+                                        rtl={false}
+                                        pauseOnFocusLoss
+                                        draggable
+                                        pauseOnHover={false}
+                                    />
                                 </div>
                             </fieldset>
                         </form>
