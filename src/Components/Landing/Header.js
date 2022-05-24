@@ -54,7 +54,14 @@ const Header = () => {
             &nbsp;
             Find Missing
           </a>
-          {/* <ul className="social">{networks}</ul> */}
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <a className="  button" href="/report">
+            <i className="fa-lg fa-solid fa-triangle-exclamation"></i>
+            &nbsp;
+            Report Missing
+          </a>
         </div>
       </div>
 

@@ -6,6 +6,7 @@ import Home from "./Components/Home";
 import UploadImage from "./Components/UploadImage";
 // import VideoInput from "./Components/VideoInput";
 import VideoDetect from "./Components/VideoDetect";
+import Report from "./Components/Report/Report";
 
 const App = () => {
 
@@ -29,7 +30,7 @@ const App = () => {
           <Route exact path="/capture" element={<UploadImage />} />
           {/* <Route exact path="/video" element={<VideoInput />} /> */}
           <Route exact path='/video' element={<VideoDetect />} />
-
+          <Route exact path='/report' element={<Report />} />
         </Routes>
       </main>
       <Footer />
