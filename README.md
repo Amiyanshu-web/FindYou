@@ -2,7 +2,7 @@
 
 > Face Recognition web-application to find missing person built with the MERN stack & FaceApi.js.
 
-![screenshot]("https://res.cloudinary.com/dbvg8hyac/image/upload/v1653490950/Missing/Screenshot_324_gws18h.png")
+![screenshot](https://res.cloudinary.com/dbvg8hyac/image/upload/v1653490950/Missing/Screenshot_324_gws18h.png)
 
 
 
