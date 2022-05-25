@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import Footer from "./Components/Footer";
 import "./App.css";
 import Home from "./Components/Home";
-import UploadImage from "./Components/UploadImage";
+import UploadImage from "./Components/FindMissing/UploadImage";
 // import VideoInput from "./Components/VideoInput";
-import VideoDetect from "./Components/VideoDetect";
+import VideoDetect from "./Components/FindMissing/VideoDetect";
 import Report from "./Components/Report/Report";
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
     //   <Testimonials data={resumeData.testimonials} />
     //   <Contact data={resumeData.main} />
     //   {/* <ContactForm /> */}
-    //   <Footer data={resumeData.main} />
+    //   <Footer data={resumeData.main} />  
 
 
     // </div>

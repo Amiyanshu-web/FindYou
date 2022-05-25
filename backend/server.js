@@ -5,7 +5,6 @@ import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import peopleRoutes from './routes/peopleRoutes.js'
-import bodyParser from 'body-parser'
 
 
 dotenv.config();
@@ -18,5 +17,5 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/people', peopleRoutes)
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, console.log('Server running...'))
+const PROXY = process.env.PROXY || 5000;
+app.listen(PROXY, console.log('Server running...' + PROXY))
