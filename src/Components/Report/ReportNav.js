@@ -17,7 +17,7 @@ const ReportNav = () => {
                     <a href='/' className="logoname">FINDYOU</a>
 
                     <li className="current">
-                        <a className="smoothscroll" href="/report">
+                        <a className="smoothscroll" href="/report" style={{ color: "#F06000" }}>
                             Report
                         </a>
                     </li>

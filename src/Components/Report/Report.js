@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
-import Navigation from '../Navigation';
 import ReportNav from './ReportNav';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -97,7 +96,6 @@ const Report = () => {
 
         //     </div >
         <>
-            {/* <Navigation /> */}
             <ReportNav />
             <section id="report">
                 <h1 style={{ textShadow: "none", color: "red", textAlign: "center" }}>REPORT MISSING</h1>
@@ -143,7 +141,7 @@ const Report = () => {
                                     <input
                                         type="text"
                                         defaultValue=""
-                                        placeholder='Enter Image url'
+                                        placeholder='Enter Image url / Choose file'
                                         value={selectImage}
                                         size="35"
                                         name="Image"
