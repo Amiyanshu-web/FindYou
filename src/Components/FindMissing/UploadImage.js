@@ -7,6 +7,7 @@ const UploadImage = () => {
     const [image, setImage] = useState();
 
     useEffect(() => {
+        //Fetching image from local storage
         const getImage = () => {
             const img = new Image();
             img.src = URL.createObjectURL(file);
@@ -25,14 +26,12 @@ const UploadImage = () => {
         <>
             <Navigation />
             <div className='maiiin'>
-                {/* <div className="overlay"></div> */}
-                {/* <video src={video} autoPlay loop muted /> */}
-                {/* <h1><strong>Image Upload</strong></h1> */}
                 <div className="content">
                     {image ? (
+                        //If image is uploaded,redirect to Imagedetect
                         <Imagedetect image={image} />
-                        // <Demo image={image} />
                     ) : (
+                        //If no image is uploaded, show the upload button
                         <>
                             <div className="newPostCard">
                                 <div className="addPost">

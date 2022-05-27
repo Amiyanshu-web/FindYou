@@ -9,7 +9,6 @@ const JSON_PROFILE = require('../../descriptors/bnk48.json');
 const Imagedetect = ({ image }) => {
     const { url } = image;
     const [friends, setFriends] = useState(null);
-    const [faceInfo, setFaceInfo] = useState(null);
     const [date, setDate] = useState(null);
     const [location, setLocation] = useState(null);
     const [birthmark, setBirthmark] = useState(null);
@@ -19,8 +18,8 @@ const Imagedetect = ({ image }) => {
     const height = 400;
     const [age, setAge] = useState(null);
     const [gender, setGender] = useState(null);
-    const [loading, setLoading] = useState(false);
     useEffect(() => {
+        // fetch faceapi models
         const MODEL_URI = process.env.PUBLIC_URL + '/models'
         setTimeout(async () => {
 
@@ -48,15 +47,16 @@ const Imagedetect = ({ image }) => {
     }, [url]);
 
     const handleImage = async () => {
-        setLoading(true);
-        console.log('Running...');
+        // console.log('Running...');
+
+        //detecting face
         var detections = await faceapi.detectAllFaces(
             imgRef.current,
             new faceapi.SsdMobilenetv1Options()
         ).withFaceLandmarks().withFaceExpressions().withFaceDescriptors().withAgeAndGender()
-        var obj = JSON.parse(JSON.stringify(detections[0].descriptor));
-        var values = Object.keys(obj).map(function (key) { return obj[key]; });
-        console.log(JSON.stringify(values));
+        // var obj = JSON.parse(JSON.stringify(detections[0].descriptor));
+        // var values = Object.keys(obj).map(function (key) { return obj[key]; });
+        // console.log(JSON.stringify(values));
         setAge(detections[0].age);
         setGender(detections[0].gender);
         const resizeDetections = faceapi.resizeResults(detections, {
@@ -64,36 +64,22 @@ const Imagedetect = ({ image }) => {
             height: height
 
         });
-        // console.log(JSON.stringify(resizeDetections[0].descriptor));
-
         faceapi.draw.drawDetections(canvasRef.current, resizeDetections);
         faceapi.draw.drawFaceExpressions(canvasRef.current, resizeDetections);
 
+        //fetching details of detected face
         const faceMatcher = await createMatcher(JSON_PROFILE);
-        setFaceInfo({ faceMatcher });
         // console.log(faceMatcher);
         let faceMatches = resizeDetections.map(desc => faceMatcher.findBestMatch(desc.descriptor));
         setFriends(faceMatches[0]._label);  //Name
         let details = faceMatches[0]._label;
-        console.log(typeof (details));
-        console.log(JSON_PROFILE[details].date);
+        // console.log(typeof (details));
+        // console.log(JSON_PROFILE[details].date);
         setDate(JSON_PROFILE[details].date);
         setLocation(JSON_PROFILE[details].found);
         setBirthmark(JSON_PROFILE[details].birthmark);
-        setLoading(false);
 
     };
-
-
-
-
-
-
-
-
-
-
-
 
     return (
         <>
@@ -111,20 +97,15 @@ const Imagedetect = ({ image }) => {
 
                     </div>
                     {friends == null ? (
+                        //Loader while detecting face
                         <div className="right">
-                            {/* <h1>LOADING...</h1> */}
-                            {/* <div class="loader">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div> */}
                             <h1>MISSING PERSON INFO</h1>
 
                             <div className="lds-ripple"><div></div><div></div></div>
 
                         </div>
                     ) : (
+                        //if face detected
                         <div className="right">
 
                             <h1>MISSING PERSON INFO</h1>
@@ -173,6 +154,7 @@ const Imagedetect = ({ image }) => {
                                     </table>
                                 </div>
                             ) : (
+                                //if face not detected
                                 <div className="not-found">
                                     <h3 className="px-2">Sorry!! No Such Missing Person Exist in our database. </h3>
                                     <p id='nouser'>If you have any information concerning this case, please contact  at +(91) 6462879071 or email us at help@findyou.com. You may also contact your local FBI office, the nearest Police Station or Consulate.</p>

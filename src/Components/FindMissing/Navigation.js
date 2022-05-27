@@ -14,14 +14,8 @@ const Navigation = () => {
                 </a>
 
                 <ul id="nav" className="nav">
-                    {/* <div id="banner"> */}
                     <a href='/' className="logoname">FINDYOU</a>
-                    {/* </div> */}
-                    {/* <li className="current">
-                        <a className="smoothscroll" href="/">
-                            <img className="abcd" src={logo} alt="logo" />
-                        </a>
-                    </li> */}
+
                     <li className="current">
                         <a className="smoothscroll" href="/capture">
                             Image

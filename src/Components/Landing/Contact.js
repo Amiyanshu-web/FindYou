@@ -62,7 +62,7 @@ const Contact = () => {
                   Email <span className="required">*</span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   defaultValue=""
                   value={email}
                   size="35"

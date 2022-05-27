@@ -39,7 +39,7 @@ const Header = () => {
       </nav>
 
       <div className="row banner">
-        <div className="banner-text">
+        <div className="banner-text columns">
           <h1 className="responsive-headline" style={{ 'font-size': 60 }}>
             <TypeWriter typing={0.5} >People Search made easy...</TypeWriter>
           </h1>
@@ -57,7 +57,7 @@ const Header = () => {
           &nbsp;
           &nbsp;
           &nbsp;
-          <a className="  button" href="/report">
+          <a className=" res button" href="/report">
             <i className="fa-lg fa-solid fa-triangle-exclamation"></i>
             &nbsp;
             Report Missing
