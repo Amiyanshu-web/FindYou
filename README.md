@@ -61,4 +61,17 @@ npm start
 npm run server
 ```
 
+### Testing Image
+
+You can find images for testing purpose over here-
+```bash
+.
+FindYou
+    ├── ...
+    ├── public
+    │   ├── ...
+    │   ├── images
+    │   │   └── missing     #here you will find all testing images
+    │   └── ...
+    └── ...
 
