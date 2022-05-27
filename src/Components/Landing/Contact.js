@@ -8,7 +8,7 @@ const Contact = () => {
 
   var contactName = 'FindYou';
   var zip = "802301";
-  var phone = "+(91) 6462879071";
+  var phone = "+(91) 987654321";
   var contactEmail = "help@findyou.com";
 
   const submitForm = () => {
@@ -59,7 +59,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="contactEmail">
-                  Email <span className="required">*</span>
+                  Email / Contact No. <span className="required">*</span>
                 </label>
                 <input
                   type="email"
@@ -111,11 +111,6 @@ const Contact = () => {
             </fieldset>
           </form>
 
-          <div id="message-warning"> Error </div>
-          <div id="message-success">
-            <i className="fa fa-check"></i>Your message was sent, thank you!
-            <br />
-          </div>
         </div>
 
         <aside className="four columns footer-widgets">

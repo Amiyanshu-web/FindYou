@@ -157,7 +157,7 @@ const Imagedetect = ({ image }) => {
                                 //if face not detected
                                 <div className="not-found">
                                     <h3 className="px-2">Sorry!! No Such Missing Person Exist in our database. </h3>
-                                    <p id='nouser'>If you have any information concerning this case, please contact  at +(91) 6462879071 or email us at help@findyou.com. You may also contact your local FBI office, the nearest Police Station or Consulate.</p>
+                                    <p id='nouser'>If you have any information concerning this case, please contact  at +(91) 987654321 or email us at help@findyou.com. You may also contact your local FBI office, the nearest Police Station or Consulate.</p>
                                 </div>
                             )}
                         </div>
