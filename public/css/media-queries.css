@@ -29,8 +29,9 @@
    ------------------------------------------------------------------ */
    header .banner { padding-bottom: 12px; }
    header .banner-text h1 {
-      font: 78px/1.1em 'opensans-bold', sans-serif;
-      letter-spacing: -1px;      
+      font: 36px/1.1em 'opensans-bold', sans-serif !important;
+      letter-spacing: -1px;   
+      margin-right: 39px;
    }
    header .banner-text h3 {
       font: 17px/1.9em 'librebaskerville-regular', serif;
@@ -191,7 +192,7 @@
       padding-bottom: 12px;
       padding-top: 6px;
    }
-   header .banner-text h1 { font: 68px/1.1em 'opensans-bold', sans-serif; }
+   header .banner-text h1 { font: 36px/1.1em 'opensans' sans-serif !important;margin-right: 77px; }
    header .banner-text h3 {
       font: 16px/1.9em 'librebaskerville-regular', serif;
       width: 85%;
@@ -352,11 +353,13 @@
    header .banner { padding-top: 24px; }
    header .banner-text h1 {
       font: 40px/1.1em 'opensans-bold', sans-serif;      
-      margin: 0 auto 24px auto;
+      margin-right: 15rem;
+      margin-bottom: 5rem;
    }
    header .banner-text h3 {
       font: 14px/1.9em 'librebaskerville-regular', sans-serif;
-      width: 90%;
+      width: 100%;
+      text-align: left;
    }
   
    /* header social links */

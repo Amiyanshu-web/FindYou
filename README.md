@@ -5,6 +5,14 @@
 ![screenshot](https://res.cloudinary.com/dbvg8hyac/image/upload/v1653490950/Missing/Screenshot_324_gws18h.png)
 
 
+### Built With
+
+* [React.js](https://reactjs.org/)
+* [Node.js](https://nodejs.org/en/)
+* [Express.js](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
+* [face-api.js](https://justadudewhohacks.github.io/face-api.js/docs/index.html)
+* [Cloudinary](https://cloudinary.com/)
 
 ## Features
 

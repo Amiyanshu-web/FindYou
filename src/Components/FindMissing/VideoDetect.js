@@ -33,8 +33,11 @@ class VideoDetect extends Component {
     }
 
     componentWillMount = async () => {
+        // Load models
         await loadModels();
+        // Create face matcher
         this.setState({ faceMatcher: await createMatcher(JSON_PROFILE) });
+        // Detect webcam
         this.setInputDevice();
     };
 
@@ -57,16 +60,28 @@ class VideoDetect extends Component {
     };
 
     startCapture = () => {
+        // Start capture
         this.interval = setInterval(() => {
             this.capture();
         }, 1500);
     };
 
     componentWillUnmount() {
+        // Stop capture
         clearInterval(this.interval);
     }
+    // componentDidMount() {
+    //     const reloadCount = sessionStorage.getItem('reloadCount');
+    //     if (reloadCount < 2) {
+    //         sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+    //         window.location.reload();
+    //     } else {
+    //         sessionStorage.removeItem('reloadCount');
+    //     }
+    // }
 
     capture = async () => {
+        // Capture image from webcam
         if (!!this.webcam.current) {
             await getFullFaceDescription(
                 this.webcam.current.getScreenshot(),
@@ -91,8 +106,8 @@ class VideoDetect extends Component {
                         // age: fullDesc[0].age
                     });
                 }
-            });
-
+            }).catch(err => console.log(err));
+            // Fetch details of matched person
             if (!!this.state.descriptors && !!this.state.faceMatcher) {
                 let match = await this.state.descriptors.map(descriptor =>
                     this.state.faceMatcher.findBestMatch(descriptor)
@@ -108,13 +123,7 @@ class VideoDetect extends Component {
 
                     })
                 }
-                // let details = match[0]._label;
-                // this.state({
-                //     date: JSON_PROFILE[details].date,
-                //     location: JSON_PROFILE[details].found,
-                //     birthmark: JSON_PROFILE[details].birthmark
 
-                // })
             }
 
         }
@@ -124,22 +133,19 @@ class VideoDetect extends Component {
     render() {
         const { detections, match, facingMode } = this.state;
         let videoConstraints = null;
-        let camera = '';
+        //
         if (!!facingMode) {
             videoConstraints = {
                 width: WIDTH,
                 height: HEIGHT,
                 facingMode: facingMode
             };
-            if (facingMode === 'user') {
-                camera = 'Front';
-            } else {
-                camera = 'Back';
-            }
+
         }
 
         let drawBox = null;
         if (!!detections) {
+            //drawing bounding box and landmarks of face
             drawBox = detections.map((detection, i) => {
                 let _H = detection.box.height;
                 let _W = detection.box.width;
@@ -178,7 +184,7 @@ class VideoDetect extends Component {
             });
         }
         // console.log(this.state.match);
-        console.log(this.state.detections);
+        // console.log(this.state.detections);
         return (
             <>
                 <Navigation />
@@ -195,6 +201,7 @@ class VideoDetect extends Component {
                                 }}
                             >
                                 {/* <p>Camera: {camera}</p> */}
+                                {/* Showing webcam and detection box */}
                                 <div
                                     style={{
                                         width: WIDTH,
@@ -229,6 +236,7 @@ class VideoDetect extends Component {
 
                                 </div>
                             ) : (
+                                // Details of detected person
                                 <div className="right">
                                     <h1>MISSING PERSON INFO</h1>
                                     <table>
