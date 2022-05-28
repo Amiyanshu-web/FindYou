@@ -70,15 +70,7 @@ class VideoDetect extends Component {
         // Stop capture
         clearInterval(this.interval);
     }
-    // componentDidMount() {
-    //     const reloadCount = sessionStorage.getItem('reloadCount');
-    //     if (reloadCount < 2) {
-    //         sessionStorage.setItem('reloadCount', String(reloadCount + 1));
-    //         window.location.reload();
-    //     } else {
-    //         sessionStorage.removeItem('reloadCount');
-    //     }
-    // }
+
 
     capture = async () => {
         // Capture image from webcam
@@ -96,7 +88,7 @@ class VideoDetect extends Component {
                         // console.log(obj.age);
                         this.setState({ age: obj.age, gender: obj.gender });
                     }
-                    console.log(this.state.fullDescripion[0]?.gender);
+                    // console.log(this.state.fullDescripion[0]?.gender);
 
 
                     this.setState({
@@ -113,7 +105,7 @@ class VideoDetect extends Component {
                     this.state.faceMatcher.findBestMatch(descriptor)
                 );
                 this.setState({ match });
-                console.log(this.state.match[0]?._label);
+                // console.log(this.state.match[0]?._label);
                 let obj2 = this.state.match[0];
                 if (obj2) {
                     this.setState({
@@ -227,7 +219,7 @@ class VideoDetect extends Component {
                                 </div>
                             </div>
                             {/* loader */}
-                            {match == null ? (
+                            {this.state.gender == null ? (
                                 <div className="right">
                                     {/* <h1>LOADING...</h1> */}
                                     <h1>MISSING PERSON INFO</h1>
@@ -280,13 +272,13 @@ class VideoDetect extends Component {
                                                 <th scope="row">4</th>
                                                 <td colspan="2">Found at</td>
                                                 <td className="name">
-                                                    {this.state.location && this.state.date ? <p> {this.state.location} on {this.state.date}</p> : null}
+                                                    {this.state.location && this.state.date ? <p> {this.state.location} on {this.state.date}</p> : <p>NOT FOUND</p>}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">5</th>
                                                 <td colspan="2">BirthMark</td>
-                                                <td className="name">{this.state.birthmark} &nbsp;</td>
+                                                <td className="name">{this.state.birthmark ? this.state.birthmark : <p>N/A</p>} &nbsp;</td>
                                             </tr>
                                         </tbody>
 

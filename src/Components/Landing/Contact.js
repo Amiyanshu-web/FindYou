@@ -6,10 +6,9 @@ const Contact = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  var contactName = 'FindYou';
-  var zip = "802301";
-  var phone = "+(91) 6462879071";
-  var contactEmail = "help@findyou.com";
+
+  const phone = "+(91) 6462879071";
+  const contactEmail = "help@findyou.com";
 
   const submitForm = () => {
     if (email !== '' && message !== '') {

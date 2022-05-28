@@ -13,16 +13,6 @@ const App = () => {
 
 
   return (
-    // <div className="App">
-    //   <Header />
-    //   <About data={resumeData.main} />
-    //   <Testimonials data={resumeData.testimonials} />
-    //   <Contact data={resumeData.main} />
-    //   {/* <ContactForm /> */}
-    //   <Footer data={resumeData.main} />  
-
-
-    // </div>
     <div>
       <main>
         <Routes>

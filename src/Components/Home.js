@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from './Footer'
 import About from './Landing/About'
 import Contact from './Landing/Contact'
 import Header from './Landing/Header'

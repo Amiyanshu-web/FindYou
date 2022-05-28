@@ -110,7 +110,7 @@ const Imagedetect = ({ image }) => {
 
                             <h1>MISSING PERSON INFO</h1>
 
-                            {friends != 'unknown' ? (
+                            {friends !== 'unknown' ? (
                                 <div>
                                     <table className="table table-hover">
                                         <thead>

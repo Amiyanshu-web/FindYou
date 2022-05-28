@@ -277,3 +277,18 @@ margin-bottom: -34px; */
   height: 120px;
   width: 120px;
 }
+
+.disabled{
+  cursor: not-allowed !important;
+  text-transform: uppercase;
+	letter-spacing: 3px;
+	color:#fff;
+   /* background: #059862; */
+	border: none;
+   height: auto;
+   display: inline-block;
+	border-radius: 3px;
+   margin-left: 26%;
+   padding: 1em;
+   
+}
