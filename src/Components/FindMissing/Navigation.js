@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 
 
 const Navigation = () => {
@@ -17,18 +17,18 @@ const Navigation = () => {
                     <a href='/' className="logoname">FINDYOU</a>
 
                     <li className="current">
-                        <a className="smoothscroll" href="/capture">
+                        {/* <a className="smoothscroll" href="/capture">
                             Image
-                        </a>
+                        </a> */}
+                        <Link to = '/capture'> Image </Link>
                     </li>
                     <li className='current'>
-                        <a className="smoothscroll" href="/video">
+                        {/* <a className="smoothscroll" href="/video">
                             Video
-                        </a>
+                        </a> */}
+                        <Link to = '/video'> Video </Link>
+
                     </li>
-
-
-
                 </ul>
             </nav>
         </>
