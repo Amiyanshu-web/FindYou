@@ -5,6 +5,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import peopleRoutes from './routes/peopleRoutes.js'
+import cors from 'cors';
 
 const app = express()
 dotenv.config();
