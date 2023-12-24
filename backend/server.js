@@ -6,10 +6,9 @@ import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import peopleRoutes from './routes/peopleRoutes.js'
 
-
+const app = express()
 dotenv.config();
 connectDB();
-const app = express()
 
 app.use(express.json())
 app.get('/', (req, res) => {

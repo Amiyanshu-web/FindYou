@@ -57,8 +57,8 @@ const Imagedetect = ({ image }) => {
         // var obj = JSON.parse(JSON.stringify(detections[0].descriptor));
         // var values = Object.keys(obj).map(function (key) { return obj[key]; });
         // console.log(JSON.stringify(values));
-        setAge(detections[0].age);
-        setGender(detections[0].gender);
+        setAge(detections[0]?.age);
+        setGender(detections[0]?.gender);
         const resizeDetections = faceapi.resizeResults(detections, {
             width: width,
             height: height
@@ -70,7 +70,7 @@ const Imagedetect = ({ image }) => {
         //fetching details of detected face
         const faceMatcher = await createMatcher(JSON_PROFILE);
         // console.log(faceMatcher);
-        let faceMatches = resizeDetections.map(desc => faceMatcher.findBestMatch(desc.descriptor));
+        let faceMatches = await resizeDetections.map(desc => faceMatcher.findBestMatch(desc.descriptor));
         setFriends(faceMatches[0]._label);  //Name
         let details = faceMatches[0]._label;
         // console.log(typeof (details));

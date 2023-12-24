@@ -3,7 +3,7 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import ReportNav from './ReportNav';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'; 
 const CLOUDINARY_FOLDER_NAME = 'Missing'
 const CLOUDINARY_CLOUD_NAME = 'dbvg8hyac'
 
@@ -30,7 +30,7 @@ const Report = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         //axios post request
-        axios.post('/api/v1/people/missing', {
+        axios.post('https://findyou-backend.onrender.com/api/v1/people/missing', {
             name,
             age,
             identification,
