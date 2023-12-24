@@ -11,6 +11,10 @@ dotenv.config();
 connectDB();
 
 app.use(express.json())
+
+// Enable CORS for all routes
+app.use(cors());
+
 app.get('/', (req, res) => {
     res.send('Hello World')
 })
