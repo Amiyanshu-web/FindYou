@@ -30,7 +30,7 @@ const Report = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         //axios post request
-        axios.post('https://findyou-backend.onrender.com/api/v1/people/missing', {
+        axios.post(`${process.env.REACT_APP_URI}/api/v1/people/missing`, {
             name,
             age,
             identification,
